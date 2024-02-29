@@ -16,6 +16,7 @@ SUBROUTINE getname(argv,nlen)
                 CALL getarg(1,argv)
         ENDIF
         nlen=LNBLNK(argv)
+        !INQUIRE(FILE='.//subordinate//'+argv(1:nlen)//'.dat',EXIST=found)
         INQUIRE(FILE=argv(1:nlen)//'.dat',EXIST=found)
         IF(.NOT.found)THEN
                 WRITE(*,*)'Data file not found: ',argv(1:nlen)//'.dat'
